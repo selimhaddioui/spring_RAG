@@ -5,9 +5,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import java.util.List;
-
-import org.springframework.web.bind.annotation.GetMapping;
 
 @Entity
 public class Document {
@@ -20,11 +17,20 @@ public class Document {
     @Column(nullable = false)
     private String title;
 
-
-    @GetMapping("/documents")
-    public List<Document> getDocuments() {
-        return documentRepository.findAll();
+    public Long getId() {
+        return id;
     }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
 }
